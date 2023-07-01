@@ -10,8 +10,13 @@ public class CameraController : MonoBehaviour
     public float panBorderThickness = 10f;
 
     public float scrollSpeed = 5f;
+    public float minX = 0f;
+    public float maxX = 75f;
     public float minY = 10f;
     public float maxY = 75f;
+    public float minZ = 0f;
+    public float maxZ = 75f;
+
 
     // Update is called once per frame
     void Update()
@@ -45,7 +50,9 @@ public class CameraController : MonoBehaviour
         Vector3 pos = transform.position;
 
         pos.y -= scroll * 1000 * scrollSpeed * Time.deltaTime;
+        pos.x = Mathf.Clamp(pos.x, minX, maxX);
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
+        pos.z = Mathf.Clamp(pos.z, minZ, maxZ);
 
         transform.position = pos;
     }
