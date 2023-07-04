@@ -6,35 +6,35 @@ public class Shop : MonoBehaviour
 {
     BuildManager buildManager;
 
-    public GameObject[] turretsPrefabs;
+    public TurretBlueprint[] turrets;
 
     private void Start()
     {
         buildManager = BuildManager.instance;
     }
 
-    public void PurchaseTurret1()
+    public void SelectTurret1()
     {
-        buildManager.SetTurretToBuild(turretsPrefabs[0]);
+        buildManager.SelectTurretToBuild(turrets[0]);
     }
 
-    public void PurchaseTurret2()
+    public void SelectTurret2()
     {
-        buildManager.SetTurretToBuild(turretsPrefabs[1]);
+        buildManager.SelectTurretToBuild(turrets[1]);
     }
 
-    public void PurchaseTurret3()
+    public void SelectTurret3()
     {
-        buildManager.SetTurretToBuild(turretsPrefabs[2]);
+        buildManager.SelectTurretToBuild(turrets[2]);
     }
 
-    public void PurchaseTurret4()
+    public void SelectTurret4()
     {
-        buildManager.SetTurretToBuild(turretsPrefabs[3]);
+        buildManager.SelectTurretToBuild(turrets[3]);
     }
 
-    public void PurchaseTurret5()
+    public void SelectTurret5()
     {
-        buildManager.SetTurretToBuild(turretsPrefabs[4]);
+        buildManager.SelectTurretToBuild(turrets[4]);
     }
 }
