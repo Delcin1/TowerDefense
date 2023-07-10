@@ -9,8 +9,12 @@ public class Node : MonoBehaviour
     public Color notEnoughMoneyColor;
     public Vector3 positionOffset;
 
-    [Header("Optional")]
+    [HideInInspector]
     public GameObject turret;
+    [HideInInspector]
+    public TurretBlueprint turretBlueprint;
+    [HideInInspector]
+    public int curTurretGrade = 0;
 
     private Renderer rend;
     private Color startColor;
@@ -32,20 +36,74 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (turret != null)
+        {
+            buildManager.SelectNode(this);
+            return;
+        }
+
         if (!buildManager.CanBuild)
         {
             return;
         }
 
-        if (turret != null)
+        BuildTurret(buildManager.GetTurretToBuild());
+    }
+
+    void BuildTurret (TurretBlueprint blueprint)
+    {
+        if (PlayerStats.Money < blueprint.cost)
         {
-            Debug.Log("Can't build there! - TODO: Display on screen.");
+            Debug.Log("Not enough money to build that!");
             return;
         }
 
-        buildManager.BuildTurretOn(this);
+        PlayerStats.Money -= blueprint.cost;
 
-        buildManager.SelectTurretToBuild(null);
+        GameObject _turret = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
+        turret = _turret;
+
+        turretBlueprint = blueprint;
+
+        Debug.Log("Turret build! Money left:" + PlayerStats.Money);
+    }
+
+    public void UpgradeTurret()
+    {
+        if (curTurretGrade > 1)
+        {
+            Debug.Log("Turret has already max level");
+            return;
+        }
+
+        if (PlayerStats.Money < turretBlueprint.upgradeCost)
+        {
+            Debug.Log("Not enough money to upgrade that!");
+            return;
+        }
+
+        PlayerStats.Money -= turretBlueprint.upgradeCost;
+
+        Destroy(turret);
+
+        GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefabs[curTurretGrade], GetBuildPosition(), Quaternion.identity);
+        turret = _turret;
+
+        curTurretGrade += 1;
+
+        Debug.Log("Turret Upgraded! Money left:" + PlayerStats.Money);
+    }
+
+    public void SellTurret()
+    {
+        PlayerStats.Money += GetTurretCost();
+        Destroy(turret);
+        turretBlueprint = null;
+    }
+
+    public int GetTurretCost()
+    {
+        return (turretBlueprint.cost + turretBlueprint.upgradeCost * curTurretGrade) / 2;
     }
 
     private void OnMouseEnter ()
