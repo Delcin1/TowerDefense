@@ -5,7 +5,9 @@ using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Transform enemyPrefab;
+    public static int EnemiesAlive;
+
+    public Wave[] waves;
 
     public Transform spawnPoint;
 
@@ -16,12 +18,26 @@ public class WaveSpawner : MonoBehaviour
 
     private int waveIndex = 0;
 
+    public bool isPlayerReady = false;
+    public GameObject readyBtn;
+
+    void Start()
+    {
+        EnemiesAlive = 0;    
+    }
+
     void Update()
     {
+        if (EnemiesAlive > 0 || !isPlayerReady)
+        {
+            return;
+        }
+
         if (countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
+            return;
         }
 
         countdown -= Time.deltaTime;
@@ -33,18 +49,35 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
-        waveIndex++;
         PlayerStats.Rounds++;
 
-        for (int i = 0; i < waveIndex; i++)
+        Wave wave = waves[waveIndex];
+
+        EnemiesAlive = wave.enemies.Length;
+
+        for (int i = 0; i < wave.enemies.Length; i++)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
+            SpawnEnemy(wave.enemies[i]);
+            yield return new WaitForSeconds(1f / wave.rate);
+        }
+
+        waveIndex++;
+
+        if (waveIndex == waves.Length)
+        {
+            Debug.Log("Level won!");
+            this.enabled = false;
         }
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy(GameObject enemy)
     {
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+    }
+
+    public void SetReady()
+    {
+        isPlayerReady = true;
+        readyBtn.SetActive(false);
     }
 }

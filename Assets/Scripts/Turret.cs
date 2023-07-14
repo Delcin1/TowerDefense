@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Turret : MonoBehaviour
 {
     private Transform target;
+
+    public GameObject deathEffect;
 
     [Header("Attributes")]
 
     public float range = 15f;
     public float fireRate = 1f;
     private float fireCountdown = 0f;
+
+    public float startHealth = 100f;
+    public int curHealth = 100;
 
     [Header("Unity Setup Fields")]
 
@@ -21,6 +27,8 @@ public class Turret : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform firePoint;
+
+    public Image healthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -82,6 +90,26 @@ public class Turret : MonoBehaviour
         {
             bullet.Seek(target);
         }
+    }
+
+    public void TakeDamage(int amount)
+    {
+        curHealth -= amount;
+
+        healthBar.fillAmount = curHealth / startHealth;
+
+        if (curHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 5f);
+
+        Destroy(gameObject);
     }
 
     void OnDrawGizmosSelected()
