@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI Text_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 7302e1421cbdf05408193a086b6bf500, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 30947204531486722
+  m_TableData:
+  - m_Id: 355971031040
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 407846182912
+    m_Localized: Fullscreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85443106758656
+    m_Localized: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85524329455616
+    m_Localized: Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87248272285696
+    m_Localized: Display Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87363934412800
+    m_Localized: Graphics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87513645899776
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87553735057408
+    m_Localized: Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 115965564477440
+    m_Localized: Low
+    m_Metadata:
+      m_Items: []
+  - m_Id: 116038037856256
+    m_Localized: Medium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 116102789521408
+    m_Localized: High
+    m_Metadata:
+      m_Items: []
+  - m_Id: 116125346488320
+    m_Localized: Ultra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 116619460665344
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 116622816108544
+    m_Localized: Russian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 144258728648704
+    m_Localized: Level Select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 144808270553088
+    m_Localized: Ready
+    m_Metadata:
+      m_Items: []
+  - m_Id: 145157626716160
+    m_Localized: Game Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 145443606945792
+    m_Localized: rounds survived
+    m_Metadata:
+      m_Items: []
+  - m_Id: 145772704620544
+    m_Localized: menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 145828132347904
+    m_Localized: retry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 146462143340544
+    m_Localized: continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 146570012450816
+    m_Localized: paused
+    m_Metadata:
+      m_Items: []
+  - m_Id: 147133894680576
+    m_Localized: Level won
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 30947204531486722
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00e086322b560000

@@ -27,6 +27,8 @@ public class Enemy : MonoBehaviour
     [Header("Unity Setup Fields")]
     public string turretTag = "Turret";
 
+    private bool isDead = false;
+
     public Image healthBar;
 
     public GameObject bulletPrefab;
@@ -44,7 +46,7 @@ public class Enemy : MonoBehaviour
 
         healthBar.fillAmount = curHealth / startHealth;
 
-        if (curHealth <= 0)
+        if (curHealth <= 0 && !isDead)
         {
             Die();
         }
@@ -52,6 +54,8 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        isDead = true;
+
         PlayerStats.Money += moneyGain;
         GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 5f);

@@ -18,6 +18,8 @@ public class WaveSpawner : MonoBehaviour
 
     private int waveIndex = 0;
 
+    public GameManager gameManager;
+
     public bool isPlayerReady = false;
     public GameObject readyBtn;
 
@@ -31,6 +33,12 @@ public class WaveSpawner : MonoBehaviour
         if (EnemiesAlive > 0 || !isPlayerReady)
         {
             return;
+        }
+
+        if (waveIndex == waves.Length)
+        {
+            gameManager.WinLevel();
+            this.enabled = false;
         }
 
         if (countdown <= 0f)
@@ -62,12 +70,6 @@ public class WaveSpawner : MonoBehaviour
         }
 
         waveIndex++;
-
-        if (waveIndex == waves.Length)
-        {
-            Debug.Log("Level won!");
-            this.enabled = false;
-        }
     }
 
     void SpawnEnemy(GameObject enemy)
