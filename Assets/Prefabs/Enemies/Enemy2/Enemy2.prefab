@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 1616368968157909050}
   - component: {fileID: 1431194136106132886}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +110,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9119906968475894856}
-  - {fileID: 7352225871960661587}
+  - {fileID: 7786471761702428786}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -142,7 +142,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 44a93086893d5334795fb2efcf7eb47e, type: 2}
+  - {fileID: 2100000, guid: 43cac55c014bbb84d8278e4d74d0efe6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -197,19 +197,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a89ddf4622a7c04cbd8e197d9ab4756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyGain: 50
-  deathEffect: {fileID: 7266803882284187216, guid: d5a4c366304c1024b9216cff2dc30dee, type: 3}
+  moneyGain: 75
+  deathEffect: {fileID: 7266803882284187216, guid: b22f0c41104cb434b95324670a56e6c8, type: 3}
   range: 15
   fireRate: 1
-  speed: 10
+  speed: 20
   startHealth: 100
   curHealth: 100
   healthDecreasePerShot: 10
   turretTag: Turret
   healthBar: {fileID: 8796545308979538576}
-  bulletPrefab: {fileID: 4689472496435805041, guid: 9cce60685619a2847a1ff6813cf94fc9, type: 3}
-  firePoint: {fileID: 7352225871960661587}
---- !u!1 &2602207497010283834
+  bulletPrefab: {fileID: 4689472496435805041, guid: c1fae02f69e01b04288cd7625ca58731, type: 3}
+  firePoint: {fileID: 7786471761702428786}
+--- !u!1 &2197190189500553401
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7352225871960661587}
+  - component: {fileID: 7786471761702428786}
   m_Layer: 0
   m_Name: FirePoint
   m_TagString: Untagged
@@ -225,13 +225,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7352225871960661587
+--- !u!4 &7786471761702428786
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2602207497010283834}
+  m_GameObject: {fileID: 2197190189500553401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}

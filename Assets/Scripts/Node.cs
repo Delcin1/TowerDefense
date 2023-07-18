@@ -47,6 +47,12 @@ public class Node : MonoBehaviour
             return;
         }
 
+        if (!buildManager.HasMoney)
+        {
+            buildManager.SelectTurretToBuild(null);
+            return;
+        }
+
         BuildTurret(buildManager.GetTurretToBuild());
     }
 
@@ -62,6 +68,8 @@ public class Node : MonoBehaviour
 
         GameObject _turret = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
         turret = _turret;
+
+        turret.GetComponent<Turret>().node = this;
 
         turretBlueprint = blueprint;
 
@@ -89,6 +97,8 @@ public class Node : MonoBehaviour
         GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefabs[curTurretGrade], GetBuildPosition(), Quaternion.identity);
         turret = _turret;
 
+        turret.GetComponent<Turret>().node = this;
+
         curTurretGrade += 1;
 
         Debug.Log("Turret Upgraded! Money left:" + PlayerStats.Money);
@@ -96,6 +106,7 @@ public class Node : MonoBehaviour
 
     public void SellTurret()
     {
+        curTurretGrade = 0;
         PlayerStats.Money += GetTurretCost();
         Destroy(turret);
         turretBlueprint = null;

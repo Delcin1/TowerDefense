@@ -107,6 +107,18 @@ MonoBehaviour:
     m_Key: Level won
     m_Metadata:
       m_Items: []
+  - m_Id: 345528127119360
+    m_Key: Lives
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1205315979108352
+    m_Key: upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1205352763154432
+    m_Key: sell
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

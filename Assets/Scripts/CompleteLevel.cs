@@ -9,12 +9,15 @@ public class CompleteLevel : MonoBehaviour
 
     public void Continue()
     {
-        PlayerPrefs.SetInt("levelReached", nextLevel);
+        if (PlayerPrefs.GetInt("levelReached", nextLevel) < nextLevel)
+            PlayerPrefs.SetInt("levelReached", nextLevel);
         SceneManager.LoadScene(nextLevel + 2);
     }
 
     public void Menu()
     {
+        if (PlayerPrefs.GetInt("levelReached", nextLevel) < nextLevel)
+            PlayerPrefs.SetInt("levelReached", nextLevel);
         SceneManager.LoadScene(0);
     }
 }

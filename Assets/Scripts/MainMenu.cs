@@ -7,8 +7,6 @@ using UnityEngine.Localization.Settings;
 
 public class MainMenu : MonoBehaviour
 {
-    public AudioMixer audioMixer;
-
     private int languageIndex;
     private bool fullscreenMode;
 
@@ -35,8 +33,6 @@ public class MainMenu : MonoBehaviour
         }
         Screen.SetResolution(PlayerPrefs.GetInt("width", Screen.currentResolution.width),
             PlayerPrefs.GetInt("height", Screen.currentResolution.height), fullscreenMode);
-
-        audioMixer.SetFloat("volume", PlayerPrefs.GetFloat("volume", 1));
 
         QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("qualityIndex", 0));
     }

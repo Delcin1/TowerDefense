@@ -22,6 +22,8 @@ public class Turret : MonoBehaviour
 
     public string enemyTag = "Enemy";
 
+    public Node node;
+
     public Transform partToRotate;
     public float turnSpeed = 10f;
 
@@ -106,6 +108,8 @@ public class Turret : MonoBehaviour
 
     void Die()
     {
+        node.curTurretGrade = 0;
+
         GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 5f);
 

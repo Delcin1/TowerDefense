@@ -11,6 +11,8 @@ public class NodeUI : MonoBehaviour
     public Button upgradeBtn;
     public TMP_Text upgradeCost;
 
+    public Vector3 positionOffset;
+
     public TMP_Text sellAmount;
 
     private Node target;
@@ -19,7 +21,7 @@ public class NodeUI : MonoBehaviour
     {
         target = _target;
 
-        transform.position = target.GetBuildPosition();
+        transform.position = target.GetBuildPosition() + positionOffset;
 
         sellAmount.text = "$" + target.GetTurretCost();
 

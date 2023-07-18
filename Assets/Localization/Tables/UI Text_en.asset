@@ -111,10 +111,23 @@ MonoBehaviour:
     m_Localized: Level won
     m_Metadata:
       m_Items: []
+  - m_Id: 345528127119360
+    m_Localized: '{PlayerStats.Lives:plural:1 live|{} lives}'
+    m_Metadata:
+      m_Items:
+      - rid: 30947204531486722
+  - m_Id: 1205315979108352
+    m_Localized: upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1205352763154432
+    m_Localized: sell
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 30947204531486722
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00e086322b560000
+        m_Entries: 00e086322b56000000e04689413a0100

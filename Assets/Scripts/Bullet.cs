@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : Sounds
 {
     private Transform target;
 
@@ -12,6 +12,20 @@ public class Bullet : MonoBehaviour
 
     public float explosionRadius = 0f;
     public GameObject impactEffect;
+
+    private void Start()
+    {
+        if (sounds.Length == 0)
+            return;
+
+        if (explosionRadius == 0f)
+        {
+            PlaySound(sounds[0], destroyed: true);
+        } else
+        {
+            PlaySound(sounds[1], destroyed: true);
+        }
+    }
 
     public void Seek(Transform _target)
     {
@@ -66,6 +80,9 @@ public class Bullet : MonoBehaviour
                 Damage(collider.transform);
             }
         }
+        if (sounds.Length != 0)
+            PlaySound(sounds[2], destroyed: true);
+
     }
 
     void Damage(Transform enemy)
